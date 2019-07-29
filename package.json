@@ -24,6 +24,7 @@
     "Pankkiviidakoodi",
     "Virtuaaliviivakoodi"
   ],
+  "types": "./types/finnish-bank-utils-types.d.ts",
   "author": "vkomulai <ville.komulainen@iki.fi>",
   "contributors": [
     "Sakari Tuominen",
