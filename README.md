@@ -102,7 +102,7 @@ FinnishBankUtils.generateFinnishRefNumber('617367284')
 
 ```js
 # Generate a Finnish IBAN
-FinnishBankUtils.generateFinnishRefIBAN()
+FinnishBankUtils.generateFinnishIBAN()
 // 'FI9080002627761348'
 ```
 
