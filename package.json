@@ -6,7 +6,8 @@
   "scripts": {
     "dist": "./node_modules/.bin/babel src/finnish-bank-utils.js > dist/finnish-bank-utils.js && ./node_modules/.bin/uglifyjs dist/finnish-bank-utils.js > dist/finnish-bank-utils.min.js",
     "lint": "./node_modules/.bin/eslint src/*.js test/*.js",
-    "test": "./node_modules/.bin/mocha --compilers js:babel-register test/finnish-bank-utils_test.js"
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register test/finnish-bank-utils_test.js",
+    "validate": "npm ls"
   },
   "repository": {
     "type": "git",

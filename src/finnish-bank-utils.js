@@ -308,7 +308,7 @@ const FinnishBankUtils = {
     version = Number(version)
 
     iban = this.formatFinnishIBAN('FI' + iban)
-    const sum = Number(euros) + Number(cents) / 100
+    const sum = Number(euros + cents)
 
     if (version === 5) {
       reference = 'RF' + reference.substr(0, 2) + removeLeadingZeros(reference.substr(2))
@@ -340,7 +340,7 @@ const FinnishBankUtils = {
       !this.isValidFinnishIBAN(object.iban) ||
       typeof object.sum != 'number' ||
       object.sum < 0 ||
-      object.sum > 999999.99 ||
+      object.sum > 99999999 ||
       object.sum != Number(object.sum.toFixed(2)) ||
       !this.isValidFinnishRefNumber(object.reference) ||
       (object.date != undefined && !isValidFinnishDate(object.date))
@@ -348,10 +348,12 @@ const FinnishBankUtils = {
       return false
     }
 
+    const sum = String(object.sum)
+    let euros = sum.slice(0, -2)
+    let cents = sum.slice(-2)
+
     let
       iban = removeAllWhiteSpaces(object.iban),
-      euros = Math.floor(object.sum),
-      cents = Math.floor(object.sum * 100 - euros * 100),
       reference = removeAllWhiteSpaces(object.reference),
       day = 0,
       month = 0,
